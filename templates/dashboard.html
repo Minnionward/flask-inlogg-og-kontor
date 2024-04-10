@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h2>Rented Offices</h2>
+    <ul>
+        {% for office in rented_offices %}
+            <li>{{ office }} <form action="/delete_office/{{ office }}" method="post"><button type="submit">Delete</button></form></li>
+        {% endfor %}
+    </ul>
+    <h2>Add New Office</h2>
+    <form action="/add_office" method="post">
+        <label for="office_name">Office Name:</label><br>
+        <input type="text" id="office_name" name="office_name" required><br>
+        <input type="submit" value="Add Office">
+    </form>
+</body>
+</html>
